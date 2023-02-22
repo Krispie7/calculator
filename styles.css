@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+#calculator{
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    height: 450px;
+    width: 350px;
+    padding:15px;
+}
+
+#screen{
+    height:75px;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 25px;
+}
+
+#buttonContainer{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    border-color: black;
+}
+
+button{
+    height:80px;
+    width: 350/4px;
+}
