@@ -6,8 +6,8 @@ after calculation, array [1] will be copied to array[0], then array [1] will
 be deleted*/
 
 function calculate(){
-    numberA=array[0];
-    numberB=array[1];
+    numberA=parseInt(array[0]);
+    numberB=parseInt(array[1]);
     if (array.length==2){
         if (operator=="add"){
             array[0]=numberA+numberB;
@@ -20,29 +20,23 @@ function calculate(){
         }
         else if (operator=="divide"){
             array[0]=numberA/numberB;
+            console.log(array[0])
         }
-        array[0]=array[0].toString()
+        array[0]=parseFloat(Math.round((array[0]*10))/10)
         array.pop();
     }
     showNumber();
 }
 
 function showNumber(){
-    if(array.length==1){
-        if (document.getElementById("screen").innerText=array[0]==0){
+    if (array.length==2){
+        document.getElementById("screen").innerText=array[1];
+        if (array[1]==0){
             document.getElementById("screen").innerText=array[0];
         }
-        else{
-            document.getElementById("screen").innerText=parseInt(array[0].toString(1));
-        }
     }
-    else if(array.length==2){
-        if (document.getElementById("screen").innerText=array[1]==0){
-            document.getElementById("screen").innerText=array[1];
-        }
-        else{
-            document.getElementById("screen").innerText=parseInt(array[1].toString(1));
-            }
+    else{
+        document.getElementById("screen").innerText=array[0];
     }
     console.log(array)
 }
@@ -54,10 +48,12 @@ document.querySelectorAll('button').forEach(item =>{
             if (item.id=="clear"){
                 if(array.length==2){
                     array.pop();
+                    console.log("popped!")
+                    console.log(array)
                 }
                 array[0]=0;
             }
-            if (array.length==2){
+            else if (array.length==2){
                 calculate()
             }
             else{
@@ -68,10 +64,10 @@ document.querySelectorAll('button').forEach(item =>{
         }
         else{ //number button pressed
             if (array.length==1){
-                array[0]=array[0].toString()+item.id;
+                array[0]=parseInt(array[0].toString()+item.id);
             }
             else if (array.length==2){
-                array[1]=array[1].toString()+item.id;
+                array[1]=parseInt(array[1].toString()+item.id);
             }
         }
         showNumber()
