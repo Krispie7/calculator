@@ -10,6 +10,7 @@ body{
     height: 450px;
     width: 350px;
     padding:15px;
+    border-radius: 15px;
 }
 
 #screen{
@@ -23,9 +24,13 @@ body{
     display: grid;
     grid-template-columns: auto auto auto auto;
     border-color: black;
+    column-gap: 25/3px;
+    row-gap: 10px;
 }
 
 button{
     height:80px;
-    width: 350/4px;
+    width: 325/4px;
+    border-radius: 10px;
+    font-size: 20px;
 }
